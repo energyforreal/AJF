@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Animal Justice Foundation
 
-## Getting Started
+Public website for Animal Justice Foundation (AJF) — Law | Compassion | Action. The organisation is in formation in Malaysia.
 
-First, run the development server:
+This repository is the Phase 0 public shell: design system, navigation, and honest placeholder pages. Accounts, petitions, payments, and the store are later milestones. Live fundraising is off.
+
+The product specification is in [docs/product-specification.md](docs/product-specification.md). Contributor rules are in [AGENTS.md](AGENTS.md).
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` when you need local variables. Leave `DONATIONS_LIVE_ENABLED=false`. Do not commit secrets.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Checks
 
-## Learn More
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+GitHub Actions runs the same checks. It does not deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Public pages cover the organisation, petitions, campaigns, news, store, cart, checkout, donations, impact, volunteering, cruelty reporting, contact, and draft policies. Donation pages explain that fundraising is closed and do not show a payment button. Forms on this shell do not store personal data.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Account and admin routes are not part of this phase.
