@@ -5,7 +5,7 @@ export const siteAbbreviation = "AJF";
 export const brandLine = "Law | Compassion | Action";
 
 export const formationNotice =
-  "Animal Justice Foundation is an organisation in formation. A registration number, registered address, and official contact details have not been published.";
+  "People are already caring for animals while Animal Justice Foundation is still being established. A registration number, registered address, and official contact details have not been published.";
 
 export const legalDraftNotice =
   "Draft for review. This page will be replaced after qualified Malaysian legal advice. It is not a final policy, and it does not create charitable, tax, or regulatory status.";

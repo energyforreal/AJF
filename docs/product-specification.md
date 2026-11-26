@@ -235,11 +235,23 @@ signature integrity.
 A submission may also be `rejected`. Rejected and pending petitions must
 not be publicly listed.
 
+A published petition is one of two kinds:
+
+-   **AJF Official.** Written by staff. Someone other than the author
+    still reviews it before publication.
+-   **Community.** Started by a supporter and reviewed against the
+    community guidelines.
+
+The directory can filter All, AJF Official, and Community. Pending and
+rejected petitions stay unlisted for both kinds. Official does not mean
+published without review.
+
 ### 6.2 Submission fields
 
 Required: title, short summary, detailed issue description, requested
-action, category, submitter name and email, agreement to community
-guidelines and privacy notice.
+action, a short list of asks, the decision-maker the petition addresses
+(a council, ministry, or other body), category, submitter name and
+email, agreement to community guidelines and privacy notice.
 
 Optional: cover image, supporting references, suggested signature goal,
 and relevant jurisdiction or location.
@@ -249,7 +261,8 @@ and relevant jurisdiction or location.
 -   Every public submission enters `pending_review`.
 -   Moderators can approve, reject or request changes.
 -   Only authorised moderators or super administrators can publish.
--   Petition creators cannot approve their own petitions.
+-   Petition creators cannot approve their own petitions. The same rule
+    applies to the staff author of an AJF Official petition.
 -   Record every moderation decision in an audit log.
 -   Support internal notes and user-facing rejection reasons.
 -   Allow users to report published petitions.
@@ -258,25 +271,33 @@ and relevant jurisdiction or location.
 
 ### 6.4 Public petition page
 
-Display title, image, summary, full description, requested action,
-target authority where known, creator display name subject to privacy
-preferences, verified signature count, goal, progress bar, sign action,
-share controls, campaign updates and related petitions.
+Display the kind (AJF Official or Community), title, image, summary,
+full description, the decision-maker, the short list of asks, creator
+display name subject to privacy preferences, verified signature count,
+goal, a progress bar of verified signatures only, sign action, share
+controls, campaign updates and related petitions.
+
+Share controls are copy link and WhatsApp. The page states that a
+signature is public support. It is not a court filing or a government
+submission.
 
 Never expose signer email addresses, private contact details or exact
-home addresses.
+home addresses. Do not show sample signature totals or sample signers.
 
 ### 6.5 Signing workflow
 
 1.  Visitor opens a published petition.
 2.  Visitor enters name and email, plus only justified additional
     information.
-3.  Visitor sees the privacy notice and signature-display choice.
+3.  Visitor sees the privacy notice, a choice to show their name on the
+    petition, and a separate opt-in for campaign email. Signing does
+    not opt the person into email.
 4.  Server validates and normalises the email.
 5.  Create a pending signature and send a verification link.
 6.  Store only a hash of the single-use, expiring verification token.
 7.  On successful verification, mark the signature `verified`.
-8.  Only verified signatures count publicly.
+8.  Only verified signatures count publicly. A signature stored only in
+    the browser does not count.
 9.  Provide signature withdrawal and applicable privacy-rights
     workflows.
 
@@ -303,6 +324,61 @@ home addresses.
 -   Signer email remains private.
 -   Moderation actions are role-protected and audited.
 -   Petition pages have canonical URLs and share metadata.
+-   The directory can filter All, AJF Official, and Community.
+-   Share actions offer copy link and WhatsApp.
+-   The page states that a signature is public support, not a court
+    filing or a government submission.
+
+### 6.8 Prototype decisions
+
+A client-only preview explored petition layout, programmes, donations,
+and a shop. The public shell does not copy that preview. These claims
+from it stay unpublished:
+
+-   Legal identity, an SSM number, a registered address, a production
+    domain, named counsel, or case write-ups. The preview footer stated
+    a Berhad name and an SSM reference. The organisation is still in
+    formation. Do not claim charitable registration, tax deductibility,
+    or Section 44(6) approval.
+-   Sample signature totals, sample signers, impact figures, prices,
+    shipping rates, and neutering fees.
+-   A rescue desk that issues case numbers. Urgent reports stay with
+    the police and the Department of Veterinary Services. The cruelty
+    report page is not an emergency service.
+-   Payment methods other than PayPal, and a live donate control.
+    `DONATIONS_LIVE_ENABLED` stays `false` until legal and operational
+    approval is explicit.
+-   The preview palette and its single-page hash navigation. Colour
+    tokens in the design system stay the source of truth.
+
+Use these preview patterns only in the milestone that owns them, and
+only with real records:
+
+-   Phase 2 uses section 6 for the petition directory, the public page,
+    and the verified sign form.
+-   Phase 3 may use suggested amounts, once or monthly frequency, and a
+    fund picker. Live collection stays off. Do not present sample
+    amounts as money received.
+-   Phase 4 may split shipping between West Malaysia and Sabah and
+    Sarawak once the rates are confirmed.
+-   The preview homepage line stays unused until a programme page
+    describes work AJF actually runs.
+
+### 6.9 Unscheduled programme notes
+
+These ideas are not routes and not a milestone. Do not add pages for
+them until a later review schedules the work:
+
+-   Trap, neuter, vaccinate, release, and manage.
+-   A feeder and rescue network.
+-   Legal-defence cases and a legal-help request.
+-   Internships.
+-   Neuter sponsorship by companies and communities, listed only with
+    written consent.
+-   Wildlife guides and council partnerships.
+
+Animal Welfare Act wording is published only after it is checked
+against the Act. Guide structure waits for the content milestone.
 
 ## 7. Donations and fundraising
 
@@ -565,7 +641,7 @@ Adapt the existing starter rather than moving files without a reason.
   -------------------------- -------------------------------
   `profiles`                 User profile and preferences
   `user_roles`               Role assignments
-  `petitions`                Petition campaigns
+  `petitions`                Petition campaigns, kind, and decision-maker
   `petition_signatures`      Signatures and verification
   `petition_updates`         Campaign updates
   `petition_reports`         Abuse/content reports
@@ -858,7 +934,8 @@ backup.
 
 -   Submission form and moderation queue.
 -   Approve/reject workflow.
--   Public petition pages.
+-   Public petition pages, following section 6: kind filters,
+    decision-maker, asks, copy link, and WhatsApp.
 -   Verified signatures.
 -   Duplicate prevention and anti-abuse controls.
 -   Updates and sharing.
@@ -1005,9 +1082,14 @@ Avoid nested branches unless collaboration requires them.
 -   [ ] Public submission enters moderation.
 -   [ ] Moderators can approve and reject.
 -   [ ] Only published petitions are public.
+-   [ ] Official and Community petitions can be filtered, and a creator
+    cannot approve their own petition.
 -   [ ] Signatures are email verified.
 -   [ ] Duplicate/unverified signatures excluded.
 -   [ ] Signer privacy and withdrawal processes exist.
+-   [ ] Share actions offer copy link and WhatsApp.
+-   [ ] The page states that a signature is public support, not a court
+    filing or a government submission.
 
 ### Donations
 

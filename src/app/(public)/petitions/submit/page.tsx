@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
   "Submit a petition",
-  "Petition submission for Animal Justice Foundation is not open yet. Public submissions will enter moderation before publication.",
+  "Ask Animal Justice Foundation to consider a petition. Submissions are not open yet, and each one will be read before it can be published.",
   "/petitions/submit",
 );
 
@@ -12,7 +12,7 @@ export default function SubmitPetitionPage() {
   return (
     <ContentPage
       title="Submit a petition"
-      lede="Public submissions will enter review before anything is published. This form is not open."
+      lede="When this opens, your petition will be read before anything is published. The form is not open."
     >
       <Alert tone="info" title="Submissions are closed">
         This page does not collect a title, description, name, or email address.
@@ -26,9 +26,9 @@ export default function SubmitPetitionPage() {
         <li>Agreement to the community guidelines and privacy notice</li>
       </ul>
       <p>
-        A creator will not be able to approve their own petition. Only an authorised
-        moderator can publish one. An online signature is a show of support. It is not
-        a formal legal filing or an official government submission.
+        The person who writes a petition cannot approve it. Only an authorised moderator
+        can publish one. An online signature is a show of support from a person. It is
+        not a formal legal filing or an official government submission.
       </p>
     </ContentPage>
   );

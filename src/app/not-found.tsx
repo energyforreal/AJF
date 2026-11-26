@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <ContentPage
       title="Page not found"
-      lede="This address is not part of the Animal Justice Foundation website."
+      lede="You were looking for a page on this site, and it is not here."
     >
       <p>
         <Link href="/" className="font-semibold text-primary underline">

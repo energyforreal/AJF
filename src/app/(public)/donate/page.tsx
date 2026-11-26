@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
   "Donate",
-  "Fundraising for Animal Justice Foundation is closed while legal status, banking, and PayPal eligibility are confirmed.",
+  "A gift to Animal Justice Foundation is a person’s support for animals. Fundraising is closed while legal status, banking, and PayPal eligibility are confirmed.",
   "/donate",
 );
 
@@ -16,7 +16,7 @@ export default function DonatePage() {
   return (
     <ContentPage
       title="Donate"
-      lede="AJF will collect donations only after its legal and payment arrangements are confirmed."
+      lede="Giving is one way a person stands with animals. AJF will collect donations only after its legal and payment arrangements are confirmed."
     >
       {donationsOpen ? (
         <Alert tone="warning" title="Payment setup is still closed">
@@ -25,14 +25,14 @@ export default function DonatePage() {
         </Alert>
       ) : (
         <Alert tone="warning" title="Fundraising is closed">
-          Live donation collection stays off while AJF confirms its legal structure,
-          banking, PayPal eligibility, and tax treatment. AJF does not claim that gifts
-          are tax deductible.
+          Thank you for wanting to give. Live donation collection stays off while AJF
+          confirms its legal structure, banking, PayPal eligibility, and tax treatment.
+          AJF does not claim that gifts are tax deductible.
         </Alert>
       )}
-      <EmptyState title="No open campaigns">
-        Suggested amounts, recurring gifts, and PayPal checkout are not shown. Donor
-        records are not collected on this page.
+      <EmptyState title="No appeal is open">
+        Suggested amounts, recurring gifts, and PayPal checkout are not shown. This page
+        does not collect a donor’s details.
       </EmptyState>
     </ContentPage>
   );

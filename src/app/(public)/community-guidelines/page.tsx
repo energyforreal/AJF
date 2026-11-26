@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
   "Community guidelines",
-  "Draft community guidelines for Animal Justice Foundation petitions and public discussion.",
+  "Draft community guidelines that protect animals, the people named in a post, and the people who read it.",
   "/community-guidelines",
 );
 
@@ -11,7 +11,7 @@ export default function CommunityGuidelinesPage() {
   return (
     <ContentPage
       title="Community guidelines"
-      lede="These draft rules will apply to petitions, updates, and reports once those features open."
+      lede="These draft rules protect animals, the people named in a post, and the people who read it. They will apply to petitions, updates, and reports once those features open."
       draft
     >
       <ul className="list-disc space-y-2 pl-5">

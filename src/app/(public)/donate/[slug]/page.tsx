@@ -5,7 +5,7 @@ import { donationsLiveEnabled } from "@/lib/features";
 
 export const metadata: Metadata = {
   title: "Donation campaign",
-  description: "This fundraising address is not open for donations.",
+  description: "This address is not a published fundraising campaign.",
   robots: { index: false, follow: false },
 };
 
@@ -15,7 +15,7 @@ export default function DonationCampaignPage() {
   return (
     <ContentPage
       title="Campaign unavailable"
-      lede="There is no open fundraising campaign at this address."
+      lede="There is no open appeal for animals at this address."
     >
       <Alert tone="warning" title={donationsOpen ? "No payment form" : "Fundraising is closed"}>
         This page does not show amounts or a PayPal button, and it does not store donor

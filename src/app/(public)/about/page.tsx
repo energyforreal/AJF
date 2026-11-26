@@ -4,22 +4,22 @@ import { formationNotice, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
   "About",
-  "Mission, vision, values, and governance status of Animal Justice Foundation, an organisation in formation in Malaysia.",
+  "Animal Justice Foundation is for people and animals in Malaysia. The organisation is still in formation.",
   "/about",
 );
 
 const principles = [
   {
     title: "Mission",
-    body: "Build a trusted public platform that helps people in Malaysia act for animals with accurate information and accountable process.",
+    body: "Help people in Malaysia act for the animals they live and work beside, with accurate information and a process they can account for.",
   },
   {
     title: "Vision",
-    body: "A society where concern for animals becomes informed, lawful, and practical action.",
+    body: "A Malaysia where concern for an animal becomes informed, lawful, and practical help.",
   },
   {
     title: "Brand line",
-    body: "Law, compassion, and action guide how AJF speaks and what it publishes.",
+    body: "Law, compassion, and action are how AJF speaks to people, and how it decides what to publish.",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function AboutPage() {
   return (
     <ContentPage
       title="About AJF"
-      lede="Animal Justice Foundation is being established as a Malaysia-oriented animal welfare and advocacy organisation."
+      lede="Animal Justice Foundation is being established for people and animals who share streets, homes, and work in Malaysia."
     >
       <p>{formationNotice}</p>
       <p>
@@ -45,9 +45,9 @@ export default function AboutPage() {
       </div>
       <h2 className="font-serif text-2xl text-forest">What this website will hold</h2>
       <p>
-        The public site, member accounts, and a moderated petition workflow come first.
-        Fundraising and the merchandise store stay closed until their legal, financial,
-        and operational requirements are met.
+        First comes a public site, member accounts, and petitions that a person reviews
+        before they are published. Fundraising and the store stay closed until the
+        legal, financial, and operational requirements are met.
       </p>
     </ContentPage>
   );

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { BrandLine } from "@/components/brand-line";
+import { Logo } from "@/components/logo";
 import { NavLinks } from "@/components/navigation/nav-links";
 import { cn } from "@/lib/cn";
 import { donationsLiveEnabled } from "@/lib/features";
-import { primaryNav, siteAbbreviation, type NavItem } from "@/lib/site";
+import { primaryNav, type NavItem } from "@/lib/site";
 
 function NavFallback({
   links,
@@ -19,7 +19,7 @@ function NavFallback({
         <li key={link.href}>
           <Link
             href={link.href}
-            className="inline-flex min-h-11 items-center rounded-md px-3 text-white underline-offset-4 hover:underline"
+            className="inline-flex min-h-11 items-center rounded-md px-3 text-ink underline-offset-4 hover:underline"
           >
             {link.label}
           </Link>
@@ -35,15 +35,18 @@ export function SiteHeader() {
     : primaryNav;
 
   return (
-    <header className="bg-forest text-white">
+    <header className="border-b border-forest/10 bg-white text-ink">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/" className="rounded-sm" aria-label="Animal Justice Foundation home">
-          <span className="block font-serif text-2xl leading-none">{siteAbbreviation}</span>
-          <BrandLine className="mt-1 text-sage" />
+        <Link
+          href="/"
+          aria-label="Animal Justice Foundation home"
+          className="inline-flex shrink-0 rounded-sm"
+        >
+          <Logo alt="" priority className="h-20 w-auto sm:h-24" />
         </Link>
         <nav aria-label="Primary" className="hidden lg:block">
           <Suspense fallback={<NavFallback links={links} />}>
-            <NavLinks links={links} />
+            <NavLinks links={links} tone="ink" />
           </Suspense>
         </nav>
         <details className="relative lg:hidden">
@@ -52,10 +55,10 @@ export function SiteHeader() {
           </summary>
           <nav
             aria-label="Primary"
-            className="absolute right-0 z-20 mt-2 min-w-56 rounded-xl bg-forest p-3 shadow-lg ring-1 ring-white/20"
+            className="absolute right-0 z-20 mt-2 min-w-56 rounded-xl bg-white p-3 text-ink shadow-lg ring-1 ring-forest/15"
           >
             <Suspense fallback={<NavFallback links={links} stacked />}>
-              <NavLinks links={links} stacked />
+              <NavLinks links={links} stacked tone="ink" />
             </Suspense>
           </nav>
         </details>

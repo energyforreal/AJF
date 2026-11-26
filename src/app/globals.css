@@ -29,11 +29,6 @@ body {
   outline-offset: 3px;
 }
 
-header :focus-visible,
-footer :focus-visible {
-  outline-color: var(--color-cream);
-}
-
 summary {
   list-style: none;
 }

@@ -17,7 +17,7 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const description = `${siteName} — ${brandLine}. A Malaysia-oriented animal welfare organisation in formation.`;
+const description = `${siteName} — ${brandLine}. A Malaysia-oriented animal welfare organisation in formation, for people who care for animals.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),

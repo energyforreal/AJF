@@ -4,34 +4,56 @@ import { NewsletterSignup } from "@/components/newsletter-signup";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { donationsLiveEnabled } from "@/lib/features";
 import { pageMetadata, siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   ...pageMetadata(
     siteName,
-    "Animal Justice Foundation is a Malaysia-oriented animal welfare organisation in formation. Law, compassion, and action.",
+    "Animal Justice Foundation is a Malaysia-oriented animal welfare organisation in formation. It exists so people can act carefully for animals.",
     "/",
   ),
   title: { absolute: siteName },
 };
 
+const actions = [
+  {
+    title: "Report animal cruelty",
+    body: "If an animal is in immediate danger, contact the authorities. AJF is not an emergency service.",
+    href: "/report-animal-cruelty",
+    label: "Read what to do",
+  },
+  {
+    title: "Explore petitions",
+    body: "A petition appears only after a person at AJF has read it.",
+    href: "/petitions",
+    label: "View the petition directory",
+  },
+  {
+    title: "Learn about AJF",
+    body: "The organisation is in formation and does not claim registration or tax status.",
+    href: "/about",
+    label: "Read about AJF",
+  },
+];
+
 const values = [
   {
     title: "Animal welfare first",
-    body: "Decisions start from the welfare of animals and the people who care for them.",
+    body: "Every decision starts with the animal, and with the person who feeds, treats, or speaks for that animal.",
   },
   {
     title: "Trust and accuracy",
-    body: "Public claims, signature counts, and financial figures are published only when they can be verified.",
+    body: "You should be able to check a public claim, a signature count, or a money figure. AJF publishes them only when they can be verified.",
   },
   {
     title: "Privacy by design",
-    body: "The platform collects the minimum personal data needed for each purpose.",
+    body: "If you share a name or an email, AJF keeps only what that purpose needs.",
   },
   {
     title: "Responsible advocacy",
-    body: "Petitions are moderated before publication. Online signatures are public support, not a court filing or a government submission.",
+    body: "A petition is read before it is published. Your signature is your public support. It is not a court filing or a government submission.",
   },
 ];
 
@@ -47,12 +69,13 @@ export default function HomePage() {
               Malaysia · Organisation in formation
             </p>
             <h1 id="hero-title" className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-              Concern for animals, turned into responsible action.
+              When an animal is in trouble, people should know what they can do.
             </h1>
             <p className="mt-4 max-w-xl text-lg text-sage">
-              Animal Justice Foundation is being established to share clear information,
-              host moderated public petitions, and, when legally ready, report its work
-              with financial transparency.
+              Neighbours, carers, and witnesses already see animals that need help.
+              Animal Justice Foundation is being established to publish clear information,
+              host petitions only after a person has reviewed them, and report money only
+              when the records are real.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button href="/petitions">Explore petitions</Button>
@@ -64,41 +87,60 @@ export default function HomePage() {
               </Button>
               {donationsOpen ? <Button href="/donate">Donate</Button> : null}
             </div>
-            <p className="mt-6 max-w-xl text-sm text-sage">
-              Licensed animal photography will be added when artwork is approved. This
-              hero uses the AJF colour system.
-            </p>
           </div>
-          <div
-            aria-hidden="true"
-            className="relative min-h-56 overflow-hidden rounded-2xl bg-primary/40 ring-1 ring-white/20"
-          >
-            <div className="absolute inset-8 rounded-full border border-cream/50" />
-            <div className="absolute inset-16 rounded-full bg-leaf/50" />
+          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+            <Image
+              src="/photos/hero-pug.jpg"
+              alt="A black pug in a denim jacket looks toward the camera."
+              fill
+              priority
+              sizes="(min-width: 1024px) 28rem, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
 
       <Section
+        id="act"
+        title="What you can do now"
+        lede="These are steps you can take on this site today. Campaigns, figures, and guides appear only when they are real."
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          {actions.map((action) => (
+            <Card key={action.href}>
+              <h3 className="font-serif text-xl text-forest">{action.title}</h3>
+              <p className="mt-2 text-ink">{action.body}</p>
+              <div className="mt-4">
+                <Button href={action.href} variant="secondary">
+                  {action.label}
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section
         id="campaigns"
         title="Featured campaigns"
-        lede="Approved campaigns will be listed here. None are published yet."
+        lede="A campaign is a public appeal you can read and stand behind. None are published yet."
       >
-        <EmptyState title="No approved campaigns">
-          Campaign pages open after AJF reviews and publishes them. This section will
-          not show placeholder campaigns.
+        <EmptyState title="No campaigns are public yet">
+          When one is published, it will name a real situation and a real ask. This
+          section will not show placeholder campaigns.
         </EmptyState>
       </Section>
 
       <Section
         id="petitions"
         title="Published petitions"
-        lede="Signature counts on this site will include verified signatures only."
+        lede="Each signature is a person. Counts on this site include verified signatures only."
         tone="sage"
       >
-        <EmptyState title="No published petitions">
-          A petition appears here after moderation. Pending and rejected petitions stay
-          off the public site.
+        <EmptyState title="No petitions are public yet">
+          A petition appears here after someone at AJF has read it. Pending and rejected
+          petitions stay off the public site.
         </EmptyState>
         <div className="mt-6">
           <Button href="/petitions" variant="secondary">
@@ -121,12 +163,12 @@ export default function HomePage() {
       <Section
         id="impact"
         title="Verified impact"
-        lede="Impact figures are published only after they are reconciled and approved."
+        lede="People who give, and the animals that money is meant to help, deserve figures that have been checked."
         tone="sage"
       >
-        <EmptyState title="No impact figures yet">
-          AJF will not display statistics, testimonials, or financial totals until they
-          come from approved records.
+        <EmptyState title="No figures to share yet">
+          Statistics, testimonials, and financial totals appear only when they come from
+          approved records.
         </EmptyState>
         <div className="mt-6">
           <Button href="/impact" variant="secondary">
@@ -138,10 +180,10 @@ export default function HomePage() {
       <Section
         id="store"
         title="AJF Store"
-        lede="Merchandise will be listed only when AJF can fulfil the order."
+        lede="A purchase is one way a person can stand with this work. Merchandise is listed only when AJF can fulfil the order."
       >
-        <EmptyState title="The catalogue is empty">
-          Products, prices, and shipping rates have not been published. Checkout is
+        <EmptyState title="Nothing is for sale yet">
+          Products, prices, and shipping rates have not been published, so checkout is
           unavailable.
         </EmptyState>
         <div className="mt-6">
@@ -154,21 +196,22 @@ export default function HomePage() {
       <Section
         id="news"
         title="News and resources"
-        lede="Articles and educational resources will be added by AJF editors."
+        lede="Stories and guides are for people who want to understand an animal’s situation, and what they can do."
         tone="sage"
       >
-        <EmptyState title="No articles yet">
-          News and animal-welfare resources will appear here when they are ready to
-          publish.
+        <EmptyState title="No stories yet">
+          News and animal-welfare resources appear here when an editor has prepared them
+          for you to read.
         </EmptyState>
       </Section>
 
       <Section id="volunteer" title="Volunteer">
         <Card>
-          <h3 className="font-serif text-xl text-forest">Offer your time later</h3>
+          <h3 className="font-serif text-xl text-forest">There will be a place for your time</h3>
           <p className="mt-2 text-ink">
-            Volunteer applications are closed while roles and safeguarding steps are
-            defined. The interest form does not collect personal details yet.
+            People already give time to animals in their own streets and homes. Volunteer
+            applications stay closed while roles and safeguarding steps are defined. The
+            volunteer page does not collect your name or contact details.
           </p>
           <div className="mt-4">
             <Button href="/volunteer" variant="secondary">

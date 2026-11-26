@@ -1,18 +1,23 @@
 import Link from "next/link";
-import { BrandLine } from "@/components/brand-line";
+import { Logo } from "@/components/logo";
 import { formationNotice, policyNav, primaryNav, siteName } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-16 bg-forest text-white">
+    <footer className="mt-16 border-t border-forest/10 bg-white text-ink">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl">AJF</p>
-          <BrandLine className="mt-2 text-sage" />
-          <p className="mt-4 text-sm text-sage">{formationNotice}</p>
+          <Link
+            href="/"
+            aria-label="Animal Justice Foundation home"
+            className="inline-flex rounded-sm"
+          >
+            <Logo alt="" className="h-auto w-44" />
+          </Link>
+          <p className="mt-4 text-sm text-muted">{formationNotice}</p>
         </div>
         <nav aria-label="Footer">
-          <h2 className="text-sm font-semibold tracking-wide text-sage">Explore</h2>
+          <h2 className="text-sm font-semibold tracking-wide text-forest">Explore</h2>
           <ul className="mt-3 space-y-1">
             {primaryNav.map((link) => (
               <li key={link.href}>
@@ -37,7 +42,7 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav aria-label="Policies">
-          <h2 className="text-sm font-semibold tracking-wide text-sage">Policies</h2>
+          <h2 className="text-sm font-semibold tracking-wide text-forest">Policies</h2>
           <ul className="mt-3 space-y-1">
             {policyNav.map((link) => (
               <li key={link.href}>
@@ -49,9 +54,9 @@ export function SiteFooter() {
           </ul>
         </nav>
       </div>
-      <div className="border-t border-white/15">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-sage">
-          {siteName}. Official contact details are pending.
+      <div className="border-t border-forest/10">
+        <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-muted">
+          {siteName}. Official contact details will be published when they are confirmed.
         </p>
       </div>
     </footer>

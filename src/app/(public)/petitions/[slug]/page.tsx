@@ -3,7 +3,7 @@ import { ClosedModule } from "@/components/closed-module";
 
 export const metadata: Metadata = {
   title: "Petition",
-  description: "This petition address is not a published Animal Justice Foundation petition.",
+  description: "This address is not a published Animal Justice Foundation petition.",
   robots: { index: false, follow: false },
 };
 
@@ -14,8 +14,8 @@ export default function PetitionDetailPage() {
       lede="There is no published petition at this address."
       emptyTitle="Nothing to sign"
     >
-      Unpublished petitions stay private. This page does not show signer details or a
-      signature count.
+      A petition that has not been published stays private, including the people who
+      might have signed it. This page does not show signer details or a signature count.
     </ClosedModule>
   );
 }

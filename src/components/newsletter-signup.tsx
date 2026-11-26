@@ -19,13 +19,14 @@ export function NewsletterSignup() {
         type="email"
         autoComplete="email"
         disabled
-        hint="Signup is closed. This field does not store an address."
+        hint="Sign-up is closed. This field does not store an address."
       />
       <Button type="submit" disabled>
         Subscribe
       </Button>
       <p id="newsletter-status" className="text-sm text-ink sm:col-span-2">
-        Newsletter signup opens when a consent record and email provider are in place.
+        Sign-up opens when AJF can record that you agreed, and when an email provider is
+        in place.
       </p>
     </form>
   );

@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata(
   "Campaigns",
-  "Approved Animal Justice Foundation campaigns will be listed here. None are published yet.",
+  "Public appeals from Animal Justice Foundation that you can read and stand behind. None are published yet.",
   "/campaigns",
 );
 
@@ -11,11 +11,11 @@ export default function CampaignsPage() {
   return (
     <ClosedModule
       title="Campaigns"
-      lede="Campaigns appear in this directory after AJF approves them for publication."
-      emptyTitle="No campaigns published"
+      lede="A campaign is a public appeal for animals that you can read and stand behind. It appears here only after AJF has approved it."
+      emptyTitle="No campaigns are public yet"
     >
-      Pending work stays off this page. AJF will not display invented campaign goals or
-      results.
+      Work still in preparation stays off this page. AJF does not invent campaign goals
+      or results.
     </ClosedModule>
   );
 }
